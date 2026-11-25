@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* main-visual */
+/* 
+.main-visual{
+    position: relative;
+}
+ */
+
+#mainVisual {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+  .img1 {
+    background-image: url(../img/main-visualkari.jpg);
+  }
+  .img2 {
+    background-image: url(../img/bd60702906567eb469da5a37a3388f3d.jpg);
+  }
+  .img3 {
+    background-image: url(../img/25377879_s.jpg);
+  }
+  .img4 {
+    background-image: url(../img/25701778_s.jpg);
+  }
+
+  .main-visual-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10 ;
+    opacity: 1;
+  }
+}
