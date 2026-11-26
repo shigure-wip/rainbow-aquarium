@@ -16,11 +16,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   await loadHTML("#header", "./common/header.html");
-  loadHTML("#footer", "./common/footer.html");
+  await loadHTML("#footer", "./common/footer.html");
 
   setTime();
   setInterval(setTime, 60000);
   hum();
+  toTop();
 });
 
 // slideshow
@@ -55,5 +56,15 @@ function hum() {
   menu.addEventListener("click", function () {
     menu.classList.toggle("open");
     nav.classList.toggle("open");
+  });
+}
+
+// totopの表示
+function toTop() {
+  const totop = document.getElementById("totop");
+  const hei = 200;
+
+  window.addEventListener("scroll", () => {
+    totop.classList.toggle("active", window.scrollY > hei);
   });
 }

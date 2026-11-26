@@ -21,13 +21,15 @@ li {
 }
 /* ここまで */
 body {
-  background-color: #fff9ee;
+  background-color: #2260b0;
   font-family: "arial", "Noto Sans JP", sans-serif;
 }
 /* header */
 header {
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
   .inner {
     width: 100%;
@@ -175,18 +177,53 @@ footer {
 
 /* totop */
 
-.totop {
+#totop {
   position: fixed;
   z-index: 90;
   width: 36px;
   height: 96px;
   bottom: 24px;
   right: 24px;
+  transform: translateX(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  /* アニメーション */
+  animation:
+    huwa 4s ease-in-out infinite,
+    gura 2s ease-in-out infinite;
+}
+
+#totop.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes huwa {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+@keyframes gura {
+  0%,
+  100% {
+    rotate: -3deg;
+  }
+  50% {
+    rotate: 3deg;
+  }
 }
 
 /* その他共通 */
 .wrap {
-  margin: 0 auto;
+  margin: 100px auto 200px;
   width: 100%;
+  min-height: 100vh;
+
   /* max-width: 1000px; */
 }
