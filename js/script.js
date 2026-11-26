@@ -25,10 +25,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // slideshow
-const slides = document.querySelectorAll("#mainVisual .slide");
 let current = 0;
 
 setInterval(function () {
+  const slides = document.querySelectorAll("#mainVisual .slide");
+
+  if (slides.length === 0) {
+    return;
+  }
+
   slides[current].classList.remove("active");
   current = (current + 1) % slides.length;
   slides[current].classList.add("active");
