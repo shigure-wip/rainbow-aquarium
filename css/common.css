@@ -1,4 +1,7 @@
 @charset "utf-8";
+html {
+  scroll-behavior: smooth;
+}
 /* 共通リセット */
 * {
   margin: 0;
@@ -13,6 +16,9 @@ a {
   text-decoration: none;
   color: #333;
 }
+li {
+  list-style: none;
+}
 /* ここまで */
 body {
   background-color: #fff9ee;
@@ -20,11 +26,167 @@ body {
 }
 /* header */
 header {
+  width: 100%;
   position: fixed;
   z-index: 1000;
+  .inner {
+    width: 100%;
+    padding: 10px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      height: 80px;
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .menu {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 142px;
+    }
+  }
+}
+
+#nowtime {
+  background-image: url(../img/open.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 320px;
+  height: 80px;
+  padding: 0px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  #status {
+    font-size: 36px;
+    font-weight: bold;
+  }
+}
+
+#hummenu {
+  width: 68px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-image: url(../img/hmnomal.png);
+}
+#hummenu.open {
+  background-image: url(../img/hmopened.png);
 }
 /* nav */
 
+#humnav {
+  position: fixed;
+  z-index: 15;
+  background-color: hsla(194, 57%, 51%, 0.8);
+  width: 0%;
+  height: 0vh;
+  top: 0;
+  right: 0;
+  padding: 100px 122px;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  transition: 0.6s 0.2s;
+  opacity: 0;
+  ul,
+  div {
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+#humnav.open {
+  opacity: 1;
+  width: 100%;
+  height: 100vh;
+  transform: translate(0%, 0%);
+
+  border-radius: 0;
+  transition: 0.6s;
+  ul,
+  div {
+    opacity: 1;
+    transition: 0.4s 0.3s;
+  }
+}
+
+#humnav {
+  display: flex;
+  ul,
+  div {
+    flex: 1;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+  }
+  ul {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    li {
+      flex: 1;
+      border-bottom: 4px solid #fff;
+      font-size: 32px;
+      font-weight: bold;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      span {
+        font-weight: normal;
+        font-size: 16px;
+        display: block;
+        padding-left: 2em;
+      }
+    }
+  }
+  .textarea {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    gap: 24px;
+    a {
+      text-decoration: underline;
+      transition: 0.3s;
+      &:hover {
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+}
+
 /* footer */
 
+footer {
+  background: #1f477a;
+}
+
+/* totop */
+
+.totop {
+  position: fixed;
+  z-index: 90;
+  width: 36px;
+  height: 96px;
+  bottom: 24px;
+  right: 24px;
+}
+
 /* その他共通 */
+.wrap {
+  margin: 0 auto;
+  width: 100%;
+  /* max-width: 1000px; */
+}
